@@ -1,0 +1,22 @@
+bastion:
+- name: bastion_internet   #bastion accepting connections from internet
+  port: 22
+  src: bastion
+  dest: mongodb
+
+mongodb:
+- name: mongodb_bastion   #mongodb accepting connections from bastion
+  port: 22
+  src: bastion
+  dest: mongodb
+
+- name: mongodb_catalogue   #mongodb accepting connections from catalogue
+  port: 27017
+  src: catalogue
+  dest: mongodb
+  
+- name: mongodb_user   #mongodb accepting connections from user
+  port: 27017
+  src: user
+  dest: mongodb
+  
